@@ -2,6 +2,11 @@
 
 # dependencies
 /node_modules
+/classwork/cw2/node_modules/
+/homework/hw2/node_modules/
+/homework/hw1/node_modules/
+/classwork/cw1/node_modules/
+
 /.pnp
 .pnp.js
 .RocketItem.jsx
@@ -24,7 +29,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/classwork/cw2/node_modules/
-/classwork/cw1/node_modules/
-/homework/hw2/node_modules/
-/homework/hw1/node_modules/
