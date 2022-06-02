@@ -1,0 +1,10 @@
+.user {
+    display: flex;
+    align-items: center;
+    width: 500px;
+    height: 30px;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+
+}
