@@ -1,0 +1,37 @@
+.wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+.mission {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 10px;
+}
+
+.wrap_img {
+    padding: 10px;
+}
+
+.img_ships {
+    height: 200px;
+}
+
+.mission_name {
+
+}
+
+.launch_year {
+
+}
+
