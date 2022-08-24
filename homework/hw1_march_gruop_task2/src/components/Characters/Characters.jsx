@@ -8,7 +8,7 @@ const Characters = () => {
     let [characters, setCharacters] = useState([]);
 
     useEffect(() => {
-        getCharacters().then(value => setCharacters(value));
+        getCharacters().then(value => setCharacters(value.results));
     }, []);
 
     return (
