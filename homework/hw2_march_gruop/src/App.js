@@ -8,13 +8,17 @@ function App() {
 
     const [userId, setUserId] = useState(null);
 
-    const getUserId = (userId)=> setUserId(userId);
-    console.log(userId);
+    const getUserId = (userId) => setUserId(userId);
 
     return (
         <div className="wrapper">
-            <Users getUserId={getUserId}/>
-            {userId && <UserDetails/>}
+            <Users
+                getUserId={getUserId}
+            />
+
+            {userId && <UserDetails
+                userId={userId}
+            />}
         </div>
     );
 }

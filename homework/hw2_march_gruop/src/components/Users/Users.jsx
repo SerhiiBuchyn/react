@@ -7,16 +7,12 @@ const Users = ({getUserId}) => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        getUsers().then(response=> setUsers(response));
+        getUsers().then(response => setUsers(response));
     }, []);
 
     return (
         <div className="users__wrapper">
-            {users.map((value) => (<User
-                key={value.id}
-                data={value}
-                getUserId={getUserId}
-            />))}
+            {users.map((value) => (<User key={value.id} data={value} getUserId={getUserId}/>))}
         </div>
     );
 };
