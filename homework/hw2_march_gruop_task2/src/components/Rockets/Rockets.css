@@ -1,0 +1,9 @@
+.d-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.rockets__wrapper {
+    margin: 20px;
+    flex-direction: column;
+}
