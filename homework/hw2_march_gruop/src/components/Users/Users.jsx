@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {getUsers} from "../../service/user.services";
 import User from '../User/User';
 
-const Users = ({getUserId}) => {
+const Users = ({getUserId, getData}) => {
 
     const [users, setUsers] = useState([]);
 
@@ -12,7 +12,7 @@ const Users = ({getUserId}) => {
 
     return (
         <div className="users__wrapper">
-            {users.map((value) => (<User key={value.id} data={value} getUserId={getUserId}/>))}
+            {users.map((value) => (<User key={value.id} data={value} getUserId={getUserId} getData={getData}/>))}
         </div>
     );
 };

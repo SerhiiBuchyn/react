@@ -1,20 +1,27 @@
-import React, {useEffect, useState} from 'react';
+// import React, {useEffect, useState} from 'react';
 
-import {getUser} from "../../service/user.services";
-import Details from "../Details/Details";
+// import {getUser} from "../../service/user.services";
+// import Details from "../Details/Details";
 
-const UserDetails = ({userId}) => {
+// in the comments it first variant how I can pass data with help state lifting. !!!!!!!!!!!!!
 
-    const [user, setUser] = useState(null);
+const UserDetails = ({userId, data}) => {
 
-    useEffect(() => {
-        getUser(userId).then((response) => setUser(response));
-    }, [userId]);
+    // const [user, setUser] = useState(null);
+    //
+    // useEffect(() => {
+    //     getUser(userId).then((response) => setUser(response));
+    // }, [userId]);
 
     return (
         <div className="user_details">
-            {user && (<Details userId={userId} user={user}/>)}
+
+            {data && (<div>{data.id}--{data.name}</div>)}
+
+            {/*{user && (<Details userId={userId} user={user}/>)}*/}
+
         </div>
+
     );
 };
 
