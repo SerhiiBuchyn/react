@@ -1,0 +1,21 @@
+.d-flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.border-style {
+    border: solid 2px cadetblue;
+    border-radius: 5px;
+}
+
+.user {
+    justify-content: space-between;
+    max-width: 500px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.user__btn {
+    padding: 2px;
+}
