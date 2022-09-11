@@ -1,70 +1,160 @@
-# Getting Started with Create React App
+// import React from 'react';
+//
+// import './App.css';
+// import {useForm} from "react-hook-form";
+// import {savePost} from "./services/axios.service/axios.service";
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+// // the 1st variant.
+//
+// import {useState} from "react";
+//
+// function App() {
+//
+// const [login, setLogin] = useState('');
+// const [password, setPassword] = useState('');
+//
+// const onChangeLogin = (e) => setLogin(e.target.value);
+// const onChangePassword = (e) => setPassword(e.target.value);
+//
+// const onSubmit = (e) => {
+//     console.log(e.target.login.value);
+//     console.log(e.target.password.value);
+//     e.preventDefault();
+// }
+//
+//the 2nd variant.
+//
+// const [form, setForm] = useState({login: '', password: ''});
+//
+// const onSubmit = (e) => {
+//     console.log(form);
+//     e.preventDefault();
+// }
+//
+// const onChange = (e) => setForm({...form, [e.target.name]: e.target.value});
+// return (
+//     <div className="App">
+// {/* the 1st and 2nd variant.*/
+// }
+// {/**/
+// }
+// {/*<form onSubmit={onSubmit}>*/
+// }
+// {/*    <input name={"login"} type="text" value={form.login} onChange={onChange}/>*/
+// }
+// {/*    <input name={"password"} type="text" value={form.password} onChange={onChange}/>*/
+// }
+// {/*    <button>Save</button>*/
+// }
+// {/*</form>*/
+// }
+// {/*    */
+// }
+//         </div>
+//     );
+// }
+// export default App;
 
-In the project directory, you can run:
+// forms method: post with fetch http request.
+//
+// import {useForm} from "react-hook-form";
+//
+// const App = () => {
+//
+//     const {register, handleSubmit, formState: {errors}} = useForm({
+//         defaultValues: {
+//             title: 'title default',
+//             body: 'body default'
+//         }
+//     });
+//
+//     const onSubmit = (data) => {
+//         fetch('https://jsonplaceholder.typicode.com/posts', {
+//             method: 'POST',
+//             body: JSON.stringify(data),
+//             headers: {
+//                 'Content-type': 'application/json; charset=UTF-8',
+//             },
+//         })
+//             .then((response) => response.json())
+//             .then((json) => console.log(json))
+//     }
+//
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit(onSubmit)}>
+//                 <input {...register('title', {required: true})}/>
+//                 {errors.title && <span>field is required</span>}
+//                 <input {...register('body', {required: true})}/>
+//                 <input type="submit" value={'save post'}/>
+//
+//                 <select {...register("userId")}>
+//                     <option value="1">1</option>
+//                     <option value="2">2</option>
+//                     <option value="3">3</option>
+//                     <option value="4">4</option>
+//                     <option value="5">5</option>
+//                 </select>
+//             </form>
+//         </div>
+//     );
+// };
+//
+// export default App;
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+// const App = () => {
+//
+//     const {register, handleSubmit, formState: {errors}} = useForm({defaultValues: {title: 'title default'}});
+//
+//     const onSubmit = (data) => {
+//         savePost(data).then(data => console.log(data))
+//     };
+//
+//     return (
+//         <div>
+//             <form onSubmit={handleSubmit(onSubmit)}>
+//                 <input {...register('title', {required: true})}/>
+//                 {errors.title && <span>filed in required</span>}
+//                 <input {...register('body')}/>
+//                 <input type="submit" value={'save post'}/>
+//
+//                 <select {...register("userId")}>
+//                     <option value="1">1</option>
+//                     <option value="2">2</option>
+//                     <option value="3">3</option>
+//                 </select>
+//             </form>
+//         </div>
+//     )
+// };
+//
+// export default App;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+configs files and ulrs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const baseUrl = 'https://jsonplaceholder.typicode.com';
+export default baseUrl;
 
-### `npm run build`
+export const urls = {
+comments:'/comments'
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ axios.services
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+import axios from 'axios';
 
-### `npm run eject`
+import baseUrl from "../../configs/urls";
+import {urls} from "../../configs/urls";
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+const axiosInstance = axios.create({
+baseURL: baseUrl,
+headers: {'Content-type': 'application/json; charset=UTF-8'}
+});
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const savePost = (data) => axiosInstance.post(`${urls.comments}`, {data: data});
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export {savePost};

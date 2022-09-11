@@ -1,12 +1,20 @@
-import './App.css';
+import React from "react";
 
+import User from "./components/User/User";
+import Comment from "./components/Comment/Comment";
 
-function App() {
-  return (
-    <div className="App">
+const App = () => {
+    return (
+        <div className="app__wrapper">
 
-    </div>
-  );
-}
+            <User/>
+
+            <hr></hr>
+
+            <Comment/>
+
+        </div>
+    );
+};
 
 export default App;
