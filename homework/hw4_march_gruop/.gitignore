@@ -7,8 +7,8 @@
 .idea
 .setupTests.js
 .reportWebVitals.js
-/.manifest.json
-/.robot.txt
+.manifest.json
+.robot.txt
 
 # testing
 /coverage
