@@ -1,0 +1,17 @@
+.d-flex {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.border-style {
+    border: solid 2px cadetblue;
+    border-radius: 5px;
+}
+
+.post {
+    max-width: 600px;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px;
+}
