@@ -14,7 +14,6 @@ function App() {
     <div className="wrapper">
       <Users getUserId={getUserId}/>
         {userId && <Posts userId={userId}/>}
-
     </div>
   );
 }
