@@ -1,0 +1,13 @@
+.car__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 2px;
+    max-width: 180px;
+    margin: 5px;
+}
+
+.btn {
+    margin: 2px;
+}
