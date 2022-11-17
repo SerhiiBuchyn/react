@@ -2,6 +2,7 @@ import {axiosInstance} from "./axios.service";
 import {urls} from '../configs';
 
 export const axiosServices = {
-    getAll: () => axiosInstance.get(`${urls.users}`),
-
-}
+    getAllUser: () => axiosInstance.get(`${urls.users}`),
+    getAllPosts: () => axiosInstance.get(`${urls.posts}`),
+    getSinglePost: (id) => axiosInstance.get(`${urls.posts}/${id}`)
+};
